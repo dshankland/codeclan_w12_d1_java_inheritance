@@ -38,4 +38,21 @@ public class DatabaseAdminTest {
     public void canGetBonus() {
         assertEquals(280, dbAdmin.payBonus(), 0.0);
     }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void testRaiseCannotBeNegative() {
+        dbAdmin.raiseSalary(-11000);
+    }
+
+    @Test
+    public void canChangeName() {
+        dbAdmin.setName("John Williams");
+        assertEquals("John Williams", dbAdmin.getName());
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void cantChangeNameToNull() {
+        dbAdmin.setName("");
+    }
+
 }

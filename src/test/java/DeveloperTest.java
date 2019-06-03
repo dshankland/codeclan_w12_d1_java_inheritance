@@ -38,4 +38,21 @@ public class DeveloperTest {
     public void canGetBonus() {
         assertEquals(250, developer.payBonus(), 0.0);
     }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void testRaiseCannotBeNegative() {
+        developer.raiseSalary(-11000);
+    }
+
+    @Test
+    public void canChangeName() {
+        developer.setName("John Williams");
+        assertEquals("John Williams", developer.getName());
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void cantChangeNameToNull() {
+        developer.setName("");
+    }
+
 }

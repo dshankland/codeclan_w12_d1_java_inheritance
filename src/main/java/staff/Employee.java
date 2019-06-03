@@ -17,6 +17,7 @@ public abstract class Employee {
     }
 
     public void setName(String name) {
+        if ((name == null) || (name == "")) throw new IllegalArgumentException("NAME CANNOT BE NULL!!");
         this.name = name;
     }
 
@@ -37,6 +38,7 @@ public abstract class Employee {
     }
 
     public void raiseSalary(double raise) {
+        if (raise < 0) throw new IllegalArgumentException("RAISE CANNOT BE NEGATIVE!!");
         this.salary += raise;
     }
 
